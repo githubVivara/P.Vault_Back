@@ -1,0 +1,31 @@
+# Use an official Node.js runtime as a parent image
+FROM node:18
+
+# Set the working directory to /app
+WORKDIR /app
+
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
+
+# Install app dependencies
+RUN npm install --production
+
+# Copy the rest of the application code to the working directory
+COPY . .
+
+# Expose port 3000 for the Node.js app
+EXPOSE 3001
+
+# Start the Node.js app
+CMD [ "npm", "start" ]
+
+
+
+#old file for development
+# FROM node:18
+# WORKDIR /app
+# COPY package*.json ./
+# RUN npm install
+# COPY . .
+# EXPOSE 3001
+# CMD ["npm", "start"]
