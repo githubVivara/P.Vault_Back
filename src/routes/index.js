@@ -3,7 +3,7 @@ import uipath from "./uipathRoutes.js";
 
 const routes = (app) => {
   app.route("/").get((req, res) => {
-    res.status(200).send({ titulo: "Vault back-end is working here" });
+    res.status(200).send({ safira: "back-end server is up" });
   });
 
   app.use(express.json(), uipath);
